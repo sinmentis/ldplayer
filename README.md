@@ -5,6 +5,7 @@ This is package for LDPlayer emulator control software. (unofficial)
 #### Table of contents
 
 * [Install](#install)
+* [Environments](#environments)
 * [License](#license)
 
 #### Contribute to ldplayer
@@ -16,6 +17,10 @@ Install
 ```shell
 pip install git+https://github.com/mantvmass/ldplayer.git
 ```
+
+Environments
+============
+* __LDPlayer__ ( 9 )
 
 License
 ==========
