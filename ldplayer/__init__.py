@@ -66,3 +66,14 @@ class LDPlayer:
     
     def quitAll(self):
         subprocess.Popen([self.__ldconsole, "quitall"])
+        
+    
+    def reboot(self, instance: str) -> bool:
+        command = [self.__ldconsole, "reboot"]
+        if str(instance).isnumeric():
+            command.extend(["--index", str(instance)])
+        else:
+            command.extend(["--name", instance])
+        process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process.communicate()
+        return process.returncode == 0

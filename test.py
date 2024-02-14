@@ -14,3 +14,7 @@ ld = LDPlayer("C:\\LDPlayer\\LDPlayer9\\ldconsole.exe")
 # print(ld.remove("testet"))
 
 # print(ld.quit("LDPlayer"))
+
+# print(ld.quitAll())
+
+# print(ld.reboot("LDPlayer"))
