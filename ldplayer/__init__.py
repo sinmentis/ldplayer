@@ -84,3 +84,14 @@ class LDPlayer:
         output, err = process.communicate()
         output = output.decode("utf-8")
         return [ins for ins in output.split("\r\n") if ins != '']
+    
+    
+    def is_running(self, instance: str) -> bool:
+        command = [self.__ldconsole, "isrunning"]
+        if str(instance).isnumeric():
+            command.extend(["--index", str(instance)])
+        else:
+            command.extend(["--name", instance])
+        process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, err = process.communicate()
+        return output.decode("utf-8") == "running"
