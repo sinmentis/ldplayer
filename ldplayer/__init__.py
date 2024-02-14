@@ -62,3 +62,7 @@ class LDPlayer:
         process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         process.communicate()
         return process.returncode == 0
+    
+    
+    def quitAll(self):
+        subprocess.Popen([self.__ldconsole, "quitall"])
