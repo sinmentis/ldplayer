@@ -20,6 +20,7 @@ class LDPlayer:
     
     def create(self, instance_name: str) -> bool:
         process = subprocess.Popen([self.__ldconsole, "add", "--name", instance_name], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process.communicate()
         return process.returncode == len(self.instances()) - 1
     
     
@@ -36,6 +37,17 @@ class LDPlayer:
     
     def copy(self, instance_name: str, source: str) -> bool:
         before = len(self.instances())
-        subprocess.Popen([self.__ldconsole, "copy", "--name", instance_name, "--from", str(source)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.Popen([self.__ldconsole, "copy", "--name", instance_name, "--from", str(source)])
         after = len(self.instances())
         return (before + 1) == after
+    
+    
+    def remove(self, instance: str) -> bool:
+        command = [self.__ldconsole, "remove"]
+        if str(instance).isnumeric():
+            command.extend(["--index", str(instance)])
+        else:
+            command.extend(["--name", instance])
+        process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process.communicate()
+        return process.returncode == 0
