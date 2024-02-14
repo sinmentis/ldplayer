@@ -7,5 +7,4 @@ print(ld.instances())
 
 # print(ld.create("testet"))
 
-
-ld.launch(instance_index=0)
+# ld.launch(instance_index=0)
