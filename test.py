@@ -12,3 +12,5 @@ ld = LDPlayer("C:\\LDPlayer\\LDPlayer9\\ldconsole.exe")
 # print(ld.copy("lj", "kjbjkb"))
 
 # print(ld.remove("testet"))
+
+# print(ld.quit("LDPlayer"))
