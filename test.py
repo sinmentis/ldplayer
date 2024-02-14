@@ -7,6 +7,6 @@ print(ld.instances())
 
 # print(ld.create("testet"))
 
-# print(ld.launch(instance_index=0))
+print(ld.launch(instance=0))
 
 # print(ld.copy("lj", "kjbjkb"))

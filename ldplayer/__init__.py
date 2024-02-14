@@ -25,11 +25,12 @@ class LDPlayer:
     
     def launch(self, instance: str) -> bool:
         command = [self.__ldconsole, "launch"]
-        if instance.isnumeric():
+        if str(instance).isnumeric():
             command.extend(["--index", str(instance)])
         else:
             command.extend(["--name", instance])
         process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        process.communicate()
         return process.returncode == 0
     
     
