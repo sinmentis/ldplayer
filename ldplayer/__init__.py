@@ -35,5 +35,8 @@ class LDPlayer:
         return process.returncode == 0
     
     
-    def copy(self, instance_name: str, source: str):
-        pass
+    def copy(self, instance_name: str, source: str) -> bool:
+        before = len(self.instances())
+        subprocess.Popen([self.__ldconsole, "copy", "--name", instance_name, "--from", str(source)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        after = len(self.instances())
+        return (before + 1) == after
