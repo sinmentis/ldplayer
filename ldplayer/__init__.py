@@ -23,14 +23,12 @@ class LDPlayer:
         return process.returncode == len(self.instances()) - 1
     
     
-    def launch(self, instance_name: str | None = None, instance_index: int | None = None) -> bool:
-        if instance_name == None and instance_index == None:
-            raise ValueError("This method requires an instance name or instance index.")
+    def launch(self, instance: str) -> bool:
         command = [self.__ldconsole, "launch"]
-        if instance_name is not None:
-            command.extend(["--name", instance_name])
+        if instance.isnumeric():
+            command.extend(["--index", str(instance)])
         else:
-            command.extend(["--index", str(instance_index)])
+            command.extend(["--name", instance])
         process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         return process.returncode == 0
     
