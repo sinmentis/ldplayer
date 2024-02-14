@@ -77,3 +77,10 @@ class LDPlayer:
         process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         process.communicate()
         return process.returncode == 0
+    
+    
+    def running_lists(self):
+        process = subprocess.Popen([self.__ldconsole, "runninglist"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, err = process.communicate()
+        output = output.decode("utf-8")
+        return [ins for ins in output.split("\r\n") if ins != '']

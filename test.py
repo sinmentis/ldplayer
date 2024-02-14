@@ -18,3 +18,5 @@ ld = LDPlayer("C:\\LDPlayer\\LDPlayer9\\ldconsole.exe")
 # print(ld.quitAll())
 
 # print(ld.reboot("LDPlayer"))
+
+# print(ld.running_lists())
