@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 setup(
     name="ldplayer",
+    version="1.0.0",
     packages=find_packages(),
     description="This is package for LDPlayer emulator control software. (unofficial)",
-    author="mantvmass",
-    maintainer="Phumin Maliwan",
-    maintainer_email="kliop2317@gmail.com",
-    url="https://github.com/mantvmass/ldplayer",
+    author="sinmentis",
+    maintainer="sinmentis",
+    url="https://github.com/sinmentis/ldplayer",
     long_description=open("README.md").read(),
     install_requires=[]
 )

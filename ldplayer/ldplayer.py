@@ -1,5 +1,57 @@
 import subprocess
 
+"""
+TODO:
+8. install, uninstall, run and kill app
+installapp <--name mnq_name | --index mnq_idx> --filename
+installapp <--name mnq_name | --index mnq_idx> --packagename
+uninstallapp <--name mnq_name | --index mnq_idx> --packagename
+runapp <--name mnq_name | --index mnq_idx> --packagename
+killapp <--name mnq_name | --index mnq_idx> --packagename
+
+ 
+
+9. setprop/getprop/adb
+setprop <--name mnq_name | --index mnq_idx> --key name --value val
+getprop <--name mnq_name | --index mnq_idx> --key name
+
+For example：
+
+setprop --index 0 --key "phone.imei" --value "auto"
+setprop --index 0 --key "phone.imsi" --value "auto"
+setprop --index 0 --key "phone.simserial" --value "auto"
+dnconsole.exe adb --name "LDPlayer" --command "shell pm list packages"
+dnconsole.exe adb --index 0  --command "shell pm list packages"
+
+ 
+
+10. list2
+F:\changzhi\LDPlayer>dnconsole.exe list2
+0,LDPlayer,2032678,1704928,1,7456,3500
+1,LDPlayer-1,852422,590830,1,3772,3180
+List2 returns multiple messages at one time, in turn:
+index, title, top window handle, bind window handle, android started, pid, pid of vbox
+
+4. property setting
+modify <--name mnq_name | --index mnq_idx>
+    [--resolution ]
+    [--cpu <1 | 2 | 3 | 4>]
+    [--memory <512 | 1024 | 2048 | 4096 | 8192>]
+    [--manufacturer asus]
+    [--model ASUS_Z00DUO]
+    [--pnumber 13812345678]
+    [--imei ]
+    [--imsi ]    
+    [--simserial ]
+    [--androidid ]
+    [--mac ]
+    [--autorotate <1 | 0>]
+    [--lockwindow <1 | 0>]
+
+For example：
+dnconsole.exe modify --index 0 --resolution 600,360,160 --cpu 1 --memory 1024 --imei auto
+
+"""
 
 class LDPlayer:
     def __init__(self, ldconsole: str) -> None:
